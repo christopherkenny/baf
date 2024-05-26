@@ -31,9 +31,9 @@ get_baf_10 <- function(state, geographies = NULL, cache_to = NULL, refresh = FAL
     geogr <- stringr::str_match(fname, paste0(base_name, '_([A-Z_]+)\\.txt'))[, 2]
     if (!is.null(geographies) && !(geogr %in% geographies)) next
     table <- readr::read_delim(file.path(zip_dir, fname),
-                               delim = ',',
-                               col_types = readr::cols(.default = 'c'),
-                               progress = interactive(), lazy = FALSE
+      delim = ',',
+      col_types = readr::cols(.default = 'c'),
+      progress = interactive(), lazy = FALSE
     )
     # check final column is not all NA
     if (!all(is.na(table[[ncol(table)]]))) {

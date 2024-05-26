@@ -40,7 +40,6 @@ clean_bafs <- function(bafs, state = NULL) {
           target = paste0(abb, COUNTYFP, DISTRICT)
         )
     }
-
   }) %>%
     setNames(noms)
 }

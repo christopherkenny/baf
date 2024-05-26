@@ -1,4 +1,3 @@
-
 befs <- c(
   # 109 - 113 are identical
   cd_109 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2013/113-congressional-district-bef/cd113.zip',
