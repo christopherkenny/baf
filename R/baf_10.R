@@ -1,14 +1,3 @@
-#' Title
-#'
-#' @param state
-#' @param geographies
-#' @param cache_to
-#' @param refresh
-#'
-#' @return
-#' @export
-#'
-#' @examples
 get_baf_10 <- function(state, geographies = NULL, cache_to = NULL, refresh = FALSE) {
   if (!is.null(cache_to) && file.exists(cache_to) && !refresh) {
     return(readRDS(cache_to))

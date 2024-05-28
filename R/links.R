@@ -1,6 +1,6 @@
 befs <- c(
-  # 109 - 113 are identical
-  cd_109 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2013/113-congressional-district-bef/cd113.zip',
+  # 109 - 112 are identical baf
+  cd_113 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2013/113-congressional-district-bef/cd113.zip',
   cd_114 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2015/114-congressional-district-bef/cd114.zip',
   cd_115 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2017/115-congressional-district-bef/cd115.zip',
   cd_116 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2019/116-congressional-district-bef/cd116.zip',
@@ -13,4 +13,27 @@ befs <- c(
   ssd_2016 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2016/2016-state-legislative-bef/sldu_2016.zip',
   shd_2022 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/2022-state-legislative-bef/sldl_2022.zip',
   ssd_2022 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/2022-state-legislative-bef/sldu_2022.zip'
+)
+
+bafs <- c(
+  cd_109 = 'https://www2.census.gov/geo/docs/maps-data/data/baf/BlockAssign_ST{fips}_{abb}.zip',
+  cd_117 = 'https://www2.census.gov/geo/docs/maps-data/data/baf2020/BlockAssign_ST{fips}_{abbr}.zip',
+)
+
+baf_links <- tibble::tribble(
+  ~state, ~years, ~geography, ~decade, ~url,
+  # congressional districts
+  'state',    list(2005:2012), 'cd', 2010, bafs['cd_109'],
+  'national', list(2013:2014), 'cd', 2010, befs['cd_113'],
+  'national', list(2015:2016), 'cd', 2010, befs['cd_114'],
+  'national', list(2017:2018), 'cd', 2010, befs['cd_115'],
+  'national', list(2019:2020), 'cd', 2010, befs['cd_116'],
+  'state',    list(2021:2022), 'cd', 2020, bafs['cd_117'],
+  'national', list(2023:2024), 'cd', 2020, befs['cd_118'],
+
+  # state legislative districts
+
+  # general bafs
+  'state', list(2010:2019), 'etc', 2010, bafs['cd_109'],
+  'state', list(2020:2029), 'etc', 2020, bafs['cd_117']
 )

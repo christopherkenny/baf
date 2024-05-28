@@ -15,4 +15,6 @@ baf <- function(state, year = 2020, geographies = NULL,
                 cache_to = baf_download_path(), refresh = FALSE) {
 
 
+
+
 }
