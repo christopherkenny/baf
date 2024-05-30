@@ -1,4 +1,4 @@
-#' Download Block Assignment Files (BAF) from the Census BureaU
+#' Download Block Assignment Files (BAF) from the Census Bureau
 #'
 #' @param state state to download data for.
 #' @param year year to download data for. Default is `2020`.
@@ -14,7 +14,8 @@
 baf <- function(state, year = 2020, geographies = NULL,
                 cache_to = baf_download_path(), refresh = FALSE) {
 
-
+  fips <- lookup_state_fips(state)
+  abb <- lookup_state_abb(state)
 
 
 }

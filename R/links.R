@@ -21,7 +21,7 @@ bafs <- c(
 )
 
 baf_links <- tibble::tribble(
-  ~state, ~years, ~geography, ~decade, ~url,
+  ~level, ~years, ~geography, ~decade, ~url,
   # congressional districts
   'state',    list(2005:2012), 'cd', 2010, bafs['cd_109'],
   'national', list(2013:2014), 'cd', 2010, befs['cd_113'],
@@ -32,8 +32,28 @@ baf_links <- tibble::tribble(
   'national', list(2023:2024), 'cd', 2020, befs['cd_118'],
 
   # state legislative districts
+  'national', list(2012:2015), 'shd', 2010, befs['shd_2012'],
+  'national', list(2016:2020), 'shd', 2010, befs['shd_2016'],
+  'national', list(2021:2022), 'shd', 2020, befs['shd_2022'],
+
+  'national', list(2012:2015), 'ssd', 2010, befs['ssd_2012'],
+  'national', list(2016:2020), 'ssd', 2010, befs['ssd_2016'],
+  'national', list(2021:2022), 'ssd', 2020, befs['ssd_2022'],
 
   # general bafs
   'state', list(2010:2019), 'etc', 2010, bafs['cd_109'],
   'state', list(2020:2029), 'etc', 2020, bafs['cd_117']
 )
+
+lookup_links <- function(state, year, geographies) {
+
+  if (is.null(geographies)) {
+    geographies <- 'etc'
+  }
+  if (!all(geographies %in% c('cd', 'shd', 'ssd', 'etc'))) {
+    geographies[!geographies %in% c('cd', 'shd', 'ssd', 'etc')] <- 'etc'
+  }
+
+  geographies <- unique(geographies)
+
+}

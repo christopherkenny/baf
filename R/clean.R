@@ -13,31 +13,37 @@
 clean_bafs <- function(bafs, state = NULL) {
   noms <- names(bafs)
   abb <- ''
-  if (!is.null(state)) abb <- censable::match_fips(state)
+  if (!is.null(state)) {
+    abb <- censable::match_fips(state)
+  }
   lapply(noms, function(nom) {
     if (nom == 'AIANNH') {
       bafs[[nom]] |>
-        dplyr::transmute(
+        dplyr::mutate(
           GEOID = BLOCKID,
-          target = dplyr::if_else(is.na(AIANNHCE), NA_character_, paste0(abb, AIANNHCE))
+          target = dplyr::if_else(is.na(AIANNHCE), NA_character_, paste0(abb, AIANNHCE)),
+          .keep = 'none'
         )
     } else if (nom == 'INCPLACE_CDP') {
       bafs[[nom]] |>
-        dplyr::transmute(
+        dplyr::mutate(
           GEOID = BLOCKID,
-          target = dplyr::if_else(is.na(PLACEFP), NA_character_, paste0(abb, PLACEFP))
+          target = dplyr::if_else(is.na(PLACEFP), NA_character_, paste0(abb, PLACEFP)),
+          .keep = 'none'
         )
     } else if (nom %in% c('CD', 'SDUNI', 'SLDL', 'SLDU')) {
       bafs[[nom]] |>
-        dplyr::transmute(
+        dplyr::mutate(
           GEOID = BLOCKID,
-          target = dplyr::if_else(is.na(DISTRICT), NA_character_, paste0(abb, DISTRICT))
+          target = dplyr::if_else(is.na(DISTRICT), NA_character_, paste0(abb, DISTRICT)),
+          .keep = 'none'
         )
     } else if (nom == 'VTD') {
       bafs[[nom]] |>
-        dplyr::transmute(
+        dplyr::mutate(
           GEOID = BLOCKID,
-          target = paste0(abb, COUNTYFP, DISTRICT)
+          target = paste0(abb, COUNTYFP, DISTRICT),
+          .keep = 'none'
         )
     }
   }) |>
