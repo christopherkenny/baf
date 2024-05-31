@@ -47,7 +47,7 @@ get_state_matches <- function(state) {
   state <- tolower(state)
   matched <- match(state, pos)
 
-  matched <- (matched %% nrow(stata))
+  matched <- (matched %% nrow(state_lookups))
   ifelse(matched == 0, 57, matched)
 }
 
