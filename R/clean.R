@@ -9,43 +9,43 @@
 #' @export
 #'
 #' @examples
-#' get_baf_10('WA') |> clean_bafs('WA')
+#' baf('WA') |> clean_bafs('WA')
 clean_bafs <- function(bafs, state = NULL) {
   noms <- names(bafs)
   abb <- ''
   if (!is.null(state)) {
-    abb <- censable::match_fips(state)
+    abb <- lookup_state_fips(state)
   }
   lapply(noms, function(nom) {
     if (nom == 'AIANNH') {
       bafs[[nom]] |>
         dplyr::mutate(
-          GEOID = BLOCKID,
-          target = dplyr::if_else(is.na(AIANNHCE), NA_character_, paste0(abb, AIANNHCE)),
+          GEOID = .data$BLOCKID,
+          target = dplyr::if_else(is.na(.data$AIANNHCE), NA_character_, paste0(abb, .data$AIANNHCE)),
           .keep = 'none'
         )
     } else if (nom == 'INCPLACE_CDP') {
       bafs[[nom]] |>
         dplyr::mutate(
-          GEOID = BLOCKID,
-          target = dplyr::if_else(is.na(PLACEFP), NA_character_, paste0(abb, PLACEFP)),
+          GEOID = .data$BLOCKID,
+          target = dplyr::if_else(is.na(.data$PLACEFP), NA_character_, paste0(abb, .data$PLACEFP)),
           .keep = 'none'
         )
     } else if (nom %in% c('CD', 'SDUNI', 'SLDL', 'SLDU')) {
       bafs[[nom]] |>
         dplyr::mutate(
-          GEOID = BLOCKID,
-          target = dplyr::if_else(is.na(DISTRICT), NA_character_, paste0(abb, DISTRICT)),
+          GEOID = .data$BLOCKID,
+          target = dplyr::if_else(is.na(.data$DISTRICT), NA_character_, paste0(abb, .data$DISTRICT)),
           .keep = 'none'
         )
     } else if (nom == 'VTD') {
       bafs[[nom]] |>
         dplyr::mutate(
-          GEOID = BLOCKID,
-          target = paste0(abb, COUNTYFP, DISTRICT),
+          GEOID = .data$BLOCKID,
+          target = paste0(abb, .data$COUNTYFP, .data$DISTRICT),
           .keep = 'none'
         )
     }
   }) |>
-    setNames(noms)
+    stats::setNames(noms)
 }

@@ -6,6 +6,7 @@
 #' @param quiet should output and progress bar be suppressed?
 #'
 #' @return a path to the downloaded file, invisibly
+#' @export
 #'
 #' @examples
 #' tf <- tempfile(fileext = '.zip')
@@ -25,9 +26,6 @@ baf_download <- function(url, path, overwrite = FALSE, quiet = FALSE) {
 
   invisible(path)
 }
-
-
-
 
 #' Get download location for `baf` files
 #'

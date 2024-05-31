@@ -2,19 +2,33 @@
 % Please edit documentation in R/baf.R
 \name{baf}
 \alias{baf}
-\title{Title}
+\title{Download Block Assignment Files (BAF) from the Census Bureau}
 \usage{
 baf(
   state,
   year = 2020,
   geographies = NULL,
   cache_to = baf_download_path(),
-  refresh = FALSE
+  overwrite = FALSE
 )
 }
 \arguments{
-\item{refresh}{}
+\item{state}{state to download data for.}
+
+\item{year}{year to download data for. Default is \code{2020}.}
+
+\item{geographies}{geography types to download. Default is \code{NULL}, which gets all available geographies.}
+
+\item{cache_to}{directory name to save the downloaded data. Default is \code{baf_download_path()}.}
+
+\item{overwrite}{Should the data be re-downloaded? Default is \code{FALSE}.}
+}
+\value{
+a list of \link{tibble}s for each geography type
 }
 \description{
-Title
+Download Block Assignment Files (BAF) from the Census Bureau
+}
+\examples{
+baf('DE', 2020)
 }

@@ -1,12 +1,15 @@
 Package: baf
 Title: Block Assignment Files
-Version: 0.0.0.9000
-Authors@R: 
+Version: 0.0.1
+Authors@R: c(
     person(given = "Christopher T.",
            family = "Kenny",
            role = c("aut", "cre"),
            email = "christopherkenny@fas.harvard.edu",
-           comment = c(ORCID = "0000-0002-9386-6860"))
+           comment = c(ORCID = "0000-0002-9386-6860")),
+    person("Cory", "McCartan", email = "corymccartan@nyu.edu",
+            role = "ctb", comment = c(ORCID = "0000-0002-6251-669X"))
+    )
 Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Encoding: UTF-8
@@ -18,5 +21,4 @@ Imports:
     dplyr,
     fs,
     glue,
-    readr,
-    tibble
+    readr
