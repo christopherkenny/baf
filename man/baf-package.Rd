@@ -7,7 +7,15 @@
 \description{
 \if{html}{\figure{logo.png}{options: style='float: right' alt='logo' width='120'}}
 
-What the package does (one paragraph).
+Download and read US Census Bureau data relationship files. Provides support for cleaning and using block assignment files since 2010, as described in \url{https://www.census.gov/geographies/reference-files/time-series/geo/block-assignment-files.html}. Also includes support for working with block equivalency files, used for years outside of decennial census years.
+}
+\seealso{
+Useful links:
+\itemize{
+  \item \url{http://christophertkenny.com/baf/}
+  \item \url{https://github.com/christopherkenny/baf}
+}
+
 }
 \author{
 \strong{Maintainer}: Christopher T. Kenny \email{christopherkenny@fas.harvard.edu} (\href{https://orcid.org/0000-0002-9386-6860}{ORCID})
