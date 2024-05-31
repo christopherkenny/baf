@@ -10,7 +10,11 @@ Authors@R: c(
     person("Cory", "McCartan", email = "corymccartan@nyu.edu",
             role = "ctb", comment = c(ORCID = "0000-0002-6251-669X"))
     )
-Description: What the package does (one paragraph).
+Description: Download and read US Census Bureau data relationship files. Provides support
+    for using block assignment files since 2010, as described in 
+    <https://www.census.gov/geographies/reference-files/time-series/geo/block-assignment-files.html>. 
+    Also includes support for working with block equivalency files, used for years 
+    outside of decennial census years.
 License: MIT + file LICENSE
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
