@@ -13,7 +13,6 @@
 #' baf('DE', 2020)
 baf <- function(state, year = 2020, geographies = NULL,
                 cache_to = baf_download_path(), overwrite = FALSE) {
-
   fips_v <- lookup_state_fips(state)
   abb_v <- lookup_state_abb(state)
 
@@ -23,7 +22,7 @@ baf <- function(state, year = 2020, geographies = NULL,
     seq_len(nrow(tb_links)),
     function(i) {
       if (tb_links$level[i] == 'state') {
-        vapply(seq_along(state), function(st_i) {
+        globs <- vapply(seq_along(state), function(st_i) {
           # construct download path ----
           fips <- fips_v[st_i]
           abb <- abb_v[st_i]
@@ -32,25 +31,45 @@ baf <- function(state, year = 2020, geographies = NULL,
           link <- glue::glue(link)
 
           target <- fs::path(cache_to, fs::path_file(link))
-
-          if (overwrite) {
-            fs::file_delete(target)
-          }
-
-          baf_download(
-            url = link,
-            path = target,
-            overwrite = overwrite
-          )
-
           cache_subdir <- fs::path(cache_to, tb_links$decade[i])
 
-          utils::unzip(target, exdir = cache_subdir)
+          if (!fs::file_exists(target) || overwrite) {
+            baf_download(
+              url = link,
+              path = target,
+              overwrite = overwrite
+            )
+            utils::unzip(target, exdir = cache_subdir)
+          }
 
-          cache_subdir
+          fs::path(cache_subdir, fs::path_ext_remove(fs::path_file(link)))
         }, character(1))
-        # handle reading
-        # delim, 2010 = ',', 2020 = '|'
+
+        stub <- fs::path_file(globs)
+        files <- fs::dir_ls(fs::path_dir(globs), regexp = paste0(stub, '*'))
+
+        short_name <- vapply(seq_along(files), function(i) {
+          x <- files[i] |>
+            fs::path_file() |>
+            fs::path_ext_remove()
+          substr(x, 21, nchar(x))
+        }, character(1))
+
+        files <- lapply(files, function(f) {
+          out <- readr::read_delim(f,
+            delim = ifelse(tb_links$decade[1] == 2010, ',', '|'),
+            col_types = readr::cols(.default = 'c'),
+            progress = interactive()
+          )
+
+          if (all(is.na(out[[ncol(out)]]))) {
+            out <- NULL
+          }
+
+          out
+        }) |>
+          stats::setNames(short_name)
+
       } else {
         # download national files
         target <- fs::path(cache_to, fs::path_file(link))
@@ -72,7 +91,8 @@ baf <- function(state, year = 2020, geographies = NULL,
         cache_subdir
       }
 
+      files
     }
-  )
-
+  ) |>
+    unlist(recursive = FALSE)
 }
