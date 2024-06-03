@@ -13,7 +13,6 @@
 #' baf('DE', 2020)
 baf <- function(state, year = 2020, geographies = NULL,
                 cache_to = baf_download_path(), overwrite = FALSE) {
-
   if (length(state) != 1) {
     cli::cli_abort('{.arg state} must be a single state abbreviation.')
   }
@@ -87,7 +86,6 @@ baf <- function(state, year = 2020, geographies = NULL,
         }) |>
           stats::setNames(short_name) |>
           Filter(Negate(is.null), x = _)
-
       } else {
         # download national files
 

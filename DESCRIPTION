@@ -27,3 +27,6 @@ Imports:
     glue,
     readr
 URL: http://christophertkenny.com/baf/, https://github.com/christopherkenny/baf
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
