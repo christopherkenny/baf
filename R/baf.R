@@ -144,13 +144,13 @@ baf <- function(state, year = 2020, geographies = NULL,
 
   if (!is.null(geographies)) {
     if ('cd' %in% tolower(geographies)) {
-      geographies <- c(geographies, paste0('CD', 109:118))
+      geographies <- c(geographies, paste0('CD', 109:119))
     }
     if ('shd' %in% tolower(geographies)) {
-      geographies <- c(geographies, paste0('SHD', 2012:2022))
+      geographies <- c(geographies, paste0('SHD', 2012:2024))
     }
     if ('ssd' %in% tolower(geographies)) {
-      geographies <- c(geographies, paste0('SSD', 2012:2022))
+      geographies <- c(geographies, paste0('SSD', 2012:2024))
     }
     out <- out[names(out) %in% geographies]
   }

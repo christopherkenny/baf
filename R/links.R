@@ -6,12 +6,16 @@ befs <- c(
   cd_116 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2019/116-congressional-district-bef/cd116.zip',
   # 2020 baf - 117
   cd_118 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/118-congressional-district-bef/cd118.zip',
+  cd_119 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2025/119-congressional-district-befs/cd119.zip',
+
   shd_2012 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2012/2012-state-legislative-bef/sldl_post2010.zip',
   ssd_2012 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2012/2012-state-legislative-bef/sldu_post2010.zip',
   shd_2016 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2016/2016-state-legislative-bef/sldl_2016.zip',
   ssd_2016 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2016/2016-state-legislative-bef/sldu_2016.zip',
   shd_2022 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/2022-state-legislative-bef/sldl_2022.zip',
-  ssd_2022 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/2022-state-legislative-bef/sldu_2022.zip'
+  ssd_2022 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/2022-state-legislative-bef/sldu_2022.zip',
+  shd_2024 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2025/2024-state-legislative-bef/sldl24.zip',
+  ssd_2024 = 'https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2025/2024-state-legislative-bef/sldu24.zip'
 )
 
 bafs <- c(
@@ -27,8 +31,9 @@ baf_links <- dplyr::tribble(
   'national', c(2015:2016), 'cd', 2010, befs['cd_114'], 'CD114',
   'national', c(2017:2018), 'cd', 2010, befs['cd_115'], 'CD115',
   'national', c(2019:2020), 'cd', 2010, befs['cd_116'], 'CD116',
-  'state', c(2021:2022), 'cd', 2020, bafs['cd_117'], 'CD117',
+  'state',    c(2021:2022), 'cd', 2020, bafs['cd_117'], 'CD117',
   'national', c(2023:2024), 'cd', 2020, befs['cd_118'], 'CD118',
+  'national', c(2025:2026), 'cd', 2020, befs['cd_119'], 'CD119',
 
   # state legislative districts
   'national', c(2012:2015), 'shd', 2010, befs['shd_2012'], 'SHD2012',
@@ -37,6 +42,8 @@ baf_links <- dplyr::tribble(
   'national', c(2012:2015), 'ssd', 2010, befs['ssd_2012'], 'SSD2012',
   'national', c(2016:2021), 'ssd', 2010, befs['ssd_2016'], 'SSD2016',
   'national', c(2022:2024), 'ssd', 2020, befs['ssd_2022'], 'SSD2022',
+  'national', c(2025:2026), 'shd', 2020, befs['shd_2024'], 'SHD2024',
+  'national', c(2025:2026), 'ssd', 2020, befs['ssd_2024'], 'SSD2024',
 
   # general bafs
   'state', c(2010:2019), 'etc', 2010, bafs['cd_109'], NA_character_,
