@@ -5,9 +5,9 @@ Authors@R: c(
     person(given = "Christopher T.",
            family = "Kenny",
            role = c("aut", "cre"),
-           email = "christopherkenny@fas.harvard.edu",
+           email = "ctkenny@proton.me",
            comment = c(ORCID = "0000-0002-9386-6860")),
-    person("Cory", "McCartan", email = "corymccartan@nyu.edu",
+    person("Cory", "McCartan", email = "mccartan@psu.edu",
             role = "ctb", comment = c(ORCID = "0000-0002-6251-669X"))
     )
 Description: Download and read US Census Bureau data relationship files. Provides 
