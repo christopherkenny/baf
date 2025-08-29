@@ -24,7 +24,7 @@ baf(
 \item{overwrite}{Should the data be re-downloaded? Default is \code{FALSE}.}
 }
 \value{
-a list of \link{tibble}s for each geography type
+a list of \link[dplyr:reexports]{dplyr::tibble}s for each geography type
 }
 \description{
 Download Block Assignment Files (BAF) from the Census Bureau

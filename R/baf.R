@@ -6,7 +6,7 @@
 #' @param cache_to directory name to save the downloaded data. Default is `baf_download_path()`.
 #' @param overwrite Should the data be re-downloaded? Default is `FALSE`.
 #'
-#' @return a list of [tibble]s for each geography type
+#' @return a list of [dplyr::tibble]s for each geography type
 #' @export
 #'
 #' @examples
