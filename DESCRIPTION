@@ -1,6 +1,6 @@
 Package: baf
 Title: Block Assignment Files
-Version: 0.0.2
+Version: 0.0.3
 Authors@R: c(
     person(given = "Christopher T.",
            family = "Kenny",
@@ -32,3 +32,4 @@ URL: http://christophertkenny.com/baf/, https://github.com/christopherkenny/baf
 Suggests: 
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
+LazyData: true

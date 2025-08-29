@@ -1,3 +1,9 @@
+## Resubmission
+
+This is a resubmission.
+The prior version failed due to load times in `clean_bafs()`.
+I have included a small data example within the package to speed up testing.
+
 ## Test environments
 
 * local R installation (Windows 11), R 4.5.1

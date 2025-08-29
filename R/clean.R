@@ -9,7 +9,8 @@
 #' @export
 #'
 #' @examples
-#' baf('WA') |> clean_bafs('WA')
+#' data('example_baf') |>
+#'   clean_bafs('WA')
 clean_bafs <- function(bafs, state = NULL) {
   noms <- names(bafs)
   abb <- ''

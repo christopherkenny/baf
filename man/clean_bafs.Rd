@@ -22,5 +22,6 @@ a tibble with two columns
 Clean Block Assignment Files
 }
 \examples{
-baf('WA') |> clean_bafs('WA')
+data('example_baf') |>
+  clean_bafs('WA')
 }

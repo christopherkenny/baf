@@ -18,11 +18,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Christopher T. Kenny \email{christopherkenny@fas.harvard.edu} (\href{https://orcid.org/0000-0002-9386-6860}{ORCID})
+\strong{Maintainer}: Christopher T. Kenny \email{ctkenny@proton.me} (\href{https://orcid.org/0000-0002-9386-6860}{ORCID})
 
 Other contributors:
 \itemize{
-  \item Cory McCartan \email{corymccartan@nyu.edu} (\href{https://orcid.org/0000-0002-6251-669X}{ORCID}) [contributor]
+  \item Cory McCartan \email{mccartan@psu.edu} (\href{https://orcid.org/0000-0002-6251-669X}{ORCID}) [contributor]
 }
 
 }
