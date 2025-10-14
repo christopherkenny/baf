@@ -1,9 +1,3 @@
-## Resubmission
-
-This is a resubmission.
-The prior version failed due to load times in `clean_bafs()`.
-I have included a small data example within the package to speed up testing.
-
 ## Test environments
 
 * local R installation (Windows 11), R 4.5.1
@@ -15,15 +9,8 @@ I have included a small data example within the package to speed up testing.
 
 ## R CMD check results
 
-0 errors | 0 warnings | 1 note
-
-New maintainer:
-  Christopher T. Kenny <ctkenny@proton.me>
-Old maintainer(s):
-  Christopher T. Kenny <christopherkenny@fas.harvard.edu>
+0 errors | 0 warnings | 0 notes
 
 ## Additional notes
 
-* This includes updating the maintainer email to ctkenny@proton.me. Please see the email from christopherkenny@fas.harvard.edu on 2025-08-29 for confirmation.
-* This fixes the NOTE on CRAN by depending on R >= 4.2.0.
-* This fixes the NOTE on CRAN about incomplete references to other packages.
+* This adds another condition for test skipping, as some US government data sources are returning 200 statuses for redirects during to the government shutdown.
