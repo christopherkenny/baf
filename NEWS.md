@@ -1,3 +1,7 @@
+# baf 0.0.4
+
+* Improves skips for tests due to false 200 responses during government shutdown
+
 # baf 0.0.2
 
 * Add support for newest BEFs for 2025, including SSD 2024, SHD 2024, and CD 119.
